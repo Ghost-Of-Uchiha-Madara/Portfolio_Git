@@ -114,7 +114,7 @@ input, textarea {
 
 html {font-family: var(--ff-poppins);}
 
-body {background: var(--smoky-black);}
+body , .project-view {background: var(--smoky-black);}
 
 /* Reused Style */
 
@@ -164,7 +164,7 @@ article
 
 article {display: none;}
 
-article.active {
+article.active , .project-view{
   display: block;
   animation: fade 0.5s ease backwards;
 }
@@ -957,7 +957,7 @@ main {
 
 .project-item > a {width: 100%;}
 
-.project-img {
+.project-img{
   position: relative;
   width: 100%;
   height: 200px;
