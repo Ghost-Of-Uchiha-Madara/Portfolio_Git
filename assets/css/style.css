@@ -969,7 +969,7 @@ main {
 .project-video{
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 200px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
@@ -1439,6 +1439,9 @@ textarea.form-input::-webkit-resizer {display: none;}
 
   .blog-content {padding: 25px;}
 
+  .project-video{height: 350px; }
+    
+
   /* contact */
   .mapbox{
     height: 380px;
@@ -1525,6 +1528,8 @@ textarea.form-input::-webkit-resizer {display: none;}
   .filter-item button:hover {color: var(--light-gray-70);}
 
   .filter-item button.active {color: var(--orange-yellow-crayola);}
+
+  .project-video{height: 450px; }
 
   /* portfolio and blog grid */
   .project-list, .blog-posts-list {grid-template-columns: 1fr 1fr;}
