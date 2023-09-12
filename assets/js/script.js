@@ -102,6 +102,7 @@ for (let i = 0; i < formInputs.length; i++){
         //check form validation
         if (form.checkValidity()){
             formBtn.removeAttribute("disabled");
+            
         } else {
             formBtn.setAttribute("disabled","");
         }
