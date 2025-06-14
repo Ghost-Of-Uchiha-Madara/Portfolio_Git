@@ -253,9 +253,9 @@ article.active , .project-view{
 }
 
 .background{
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 1500px;
+  height: 100%;
   background: #111;
   display: flex;
   justify-content: flex-start;
@@ -273,7 +273,7 @@ article.active , .project-view{
   display: flex;
   padding: 10px 0;
   white-space: nowrap;
-  font-size: 64px;
+  font-size: 86px;
   transform: rotate(-30deg);  
 }
 
