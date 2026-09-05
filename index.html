@@ -156,15 +156,18 @@
 
       <!-- Desk Strike -->
       <article class="feature reveal">
-        <div class="feature-media">
-          <video data-autoloop muted loop playsinline preload="none"
-                 poster="./assets/images/opt/desk-strike-poster-1200.webp"
-                 width="1280" height="800"
-                 aria-label="Desk Strike gameplay: aiming a flick across a desk">
+        <div class="feature-media" data-hover-media>
+          <img src="./assets/images/opt/desk-strike-1200.webp"
+               srcset="./assets/images/opt/desk-strike-600.webp 600w, ./assets/images/opt/desk-strike-1200.webp 1200w"
+               sizes="(max-width: 880px) 92vw, 46vw"
+               alt="Desk Strike key art — a pen mid-strike on an office desk"
+               width="1200" height="750" loading="lazy">
+          <video data-hover-video muted loop playsinline preload="none"
+                 width="1280" height="800" tabindex="-1" aria-hidden="true">
             <source src="./assets/video/desk-strike.mp4" type="video/mp4">
           </video>
           <span class="badge">Shipped · CrazyGames</span>
-          <span class="media-note">Gameplay</span>
+          <span class="media-note" data-hover-label>Hover for gameplay</span>
         </div>
 
         <div>

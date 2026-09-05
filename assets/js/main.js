@@ -289,25 +289,90 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   window.addEventListener('resize', onScroll, { passive: true });
 })();
 
-/* --- Gameplay clips ------------------------------------------------------
-   Autoplaying video is a bandwidth and attention cost, so a clip only starts
-   once it is actually on screen and stops again when it leaves. With reduced
-   motion requested nothing plays: the poster frame stands in, and controls
-   appear so the clip is still reachable on purpose. */
-(function autoLoopVideos() {
+/* --- Hover-to-play cards -------------------------------------------------
+   The card rests on its key art and swaps to gameplay while pointed at. The
+   video carries preload="none", so the file is not fetched at all until the
+   first hover — the clip costs nothing to anyone who never looks at it.
+
+   Touch devices report no hover, so there the clip plays once scrolled into
+   view instead; otherwise a phone would only ever see the still. */
+(function hoverMedia() {
+  const holders = [...document.querySelectorAll('[data-hover-media]')];
+  if (holders.length === 0) return;
+
+  const canHover = window.matchMedia('(hover: hover)').matches;
+
+  holders.forEach((holder) => {
+    const video = holder.querySelector('[data-hover-video]');
+    const label = holder.querySelector('[data-hover-label]');
+    if (!video) return;
+
+    // Reduced motion: never move on its own. Leave the key art up and let the
+    // case study be the place the clip is watched deliberately.
+    if (reduceMotion) {
+      if (label) label.textContent = 'Gameplay in case study';
+      return;
+    }
+
+    let loaded = false;
+    const start = () => {
+      if (!loaded) {
+        video.preload = 'auto';
+        video.load();
+        loaded = true;
+      }
+      holder.classList.add('is-playing');
+      const played = video.play();
+      if (played && typeof played.catch === 'function') played.catch(() => {});
+    };
+    const stop = () => {
+      holder.classList.remove('is-playing');
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    if (canHover) {
+      const card = holder.closest('.feature') || holder;
+      card.addEventListener('mouseenter', start);
+      card.addEventListener('mouseleave', stop);
+      // Keyboard users tabbing to the card's links get the same preview.
+      card.addEventListener('focusin', start);
+      card.addEventListener('focusout', (e) => {
+        if (!card.contains(e.relatedTarget)) stop();
+      });
+      return;
+    }
+
+    if (label) label.textContent = 'Gameplay';
+    if (!('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            holder.classList.add('in-view');
+            start();
+          } else {
+            holder.classList.remove('in-view');
+            stop();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(holder);
+  });
+})();
+
+/* --- Case-study clip -----------------------------------------------------
+   Plays while on screen, pauses when it leaves. Reduced motion leaves it
+   paused with its controls, so it is watched only on purpose. */
+(function caseClip() {
   const videos = [...document.querySelectorAll('video[data-autoloop]')];
   if (videos.length === 0) return;
 
-  if (reduceMotion) {
-    videos.forEach((v) => {
-      v.controls = true;
-      v.preload = 'metadata';
-    });
-    return;
-  }
-
-  if (!('IntersectionObserver' in window)) {
-    videos.forEach((v) => (v.controls = true));
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    videos.forEach((v) => { v.controls = true; });
     return;
   }
 
@@ -316,10 +381,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
       entries.forEach((entry) => {
         const v = entry.target;
         if (entry.isIntersecting) {
-          // preload="none" means there is nothing buffered until we ask.
-          if (v.preload === 'none') v.preload = 'auto';
           const played = v.play();
-          // Autoplay can still be refused; fall back to visible controls.
           if (played && typeof played.catch === 'function') {
             played.catch(() => { v.controls = true; });
           }
