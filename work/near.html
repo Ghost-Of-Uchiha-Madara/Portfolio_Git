@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>neAR — Sankara Pandi</title>
+<meta name="description" content="Unity augmented-reality application with native camera access and on-device tracking.">
+<link rel="icon" href="../assets/images/MadaraLogo.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="xp-bar" aria-hidden="true"><span data-xp></span></div>
+
+<header class="site-header" data-header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">SP</span>
+      <span>Sankara<b>.</b></span>
+    </a>
+    <ul class="nav-links" id="nav-links" data-nav-links>
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#notes">Notes</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn--ghost btn--sm btn--cv" href="../assets/cv/Sankara-Pandi-CV.pdf" download>Résumé</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation" aria-controls="nav-links"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#archive">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </a>
+    <h1 class="case-title">neAR</h1>
+    <p class="case-lede">An augmented-reality Unity application using native camera access and on-device tracking to place content in the physical world.</p>
+
+    <dl class="case-facts">
+      <div><dt>Engine</dt><dd>Unity</dd></div>
+      <div><dt>Language</dt><dd>C#</dd></div>
+      <div><dt>Platform</dt><dd>Android</dd></div>
+      <div><dt>Focus</dt><dd>Augmented reality</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="wrap">
+
+  <div class="case-body">
+<div class="callout">
+  <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+  <p><strong>Screenshots pending.</strong> This page will be expanded with captures from a device build.</p>
+</div>
+
+<h2>What it is</h2>
+<p>A Unity AR application for Android, built to get properly familiar with the awkward parts of AR: camera permissions, device tracking and the gap between what works in the editor and what works on a phone.</p>
+
+<h2>What I built</h2>
+<ul>
+  <li><strong>Native camera integration</strong> for direct device camera access from Unity.</li>
+  <li><strong>On-device tracking</strong> to anchor content against the real world.</li>
+  <li><strong>An in-app debug console</strong>, because AR bugs only reproduce on hardware where no debugger is attached — this was the single biggest time-saver in the project.</li>
+</ul>
+
+<h2>What I took from it</h2>
+<p>AR development is mostly device-testing logistics. Building the on-device logging first made everything after it faster.</p>
+  </div>
+
+  <nav class="case-nav">
+    <a class="btn btn--ghost btn--sm btn--plain" href="../index.html#archive">← Back to all work</a>
+    <a class="btn btn--primary btn--sm" href="../index.html#contact">Get in touch</a>
+  </nav>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span data-year>2026</span> Sankara Pandi — built by hand, no framework.</p>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/sankar-gamedev/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+      </a>
+      <a href="https://github.com/Ghost-Of-Uchiha-Madara" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.9 18.3 5.2 18.3 5.2c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

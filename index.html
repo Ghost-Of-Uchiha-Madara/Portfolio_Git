@@ -1,2198 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Madara</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sankara Pandi — Unity Developer | Gameplay &amp; Systems</title>
+<meta name="description" content="Unity developer specialising in gameplay and systems programming. Shipped iGaming and hyper-casual titles; physics, multiplayer and live-backend work in Unity and Godot.">
+<meta name="author" content="Sankara Pandi">
 
-  <link rel="shortcut icon" href="./assets/images/MadaraLogo.png" type="image/x-icon">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sankara Pandi — Unity Developer">
+<meta property="og:description" content="Gameplay and systems programmer. Physics, multiplayer and live-backend work in Unity and Godot.">
+<meta property="og:image" content="./assets/images/opt/desk-strike-1200.webp">
+<meta name="twitter:card" content="summary_large_image">
 
-  <link rel="stylesheet" href="./assets/css/style.css">
+<link rel="icon" href="./assets/images/MadaraLogo.png" type="image/png">
+<link rel="stylesheet" href="./assets/css/style.css">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  
-  <section class="background">
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="xp-bar" aria-hidden="true"><span data-xp></span></div>
+
+<!-- ===================== Header ===================== -->
+<header class="site-header" data-header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">SP</span>
+      <span>Sankara<b>.</b></span>
+    </a>
+
+    <ul class="nav-links" id="nav-links" data-nav-links>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- TODO(link): drop your PDF at assets/cv/Sankara-Pandi-CV.pdf and this works. -->
+      <a class="btn btn--ghost btn--sm btn--cv" href="./assets/cv/Sankara-Pandi-CV.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Résumé
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation" aria-controls="nav-links">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== Hero ===================== -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span class="line">Sankara <span class="accent">Pandi</span></span></h1>
+
+      <p class="hero-role">
+        Unity Developer — <span class="typed-target" data-typed='["Gameplay &amp; Systems","Physics Programming","Live-Ops Backends","Technical Design"]'></span><span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <p class="hero-bio">
+        I build the systems underneath games — physics, state, progression and the
+        backends that keep them running. <strong>Three years shipping iGaming and
+        hyper-casual titles</strong> in production, and a personal catalogue that runs
+        from a turn-based physics duel to a full multiplayer stack on PlayFab.
+      </p>
+
+      <div class="hero-cta">
+        <!-- TODO(link): replace with the live CrazyGames URL for Desk Strike. -->
+        <a class="btn btn--primary" href="https://www.crazygames.com/game/REPLACE-WITH-DESK-STRIKE-SLUG" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          Play Desk Strike
+        </a>
+        <a class="btn btn--ghost" href="#work">See the work</a>
       </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
+
+      <div class="stack-strip">
+        <span class="label">Stack</span>
+        <span class="chip">Unity 6</span>
+        <span class="chip">C#</span>
+        <span class="chip">Godot 4</span>
+        <span class="chip">PlayFab</span>
+        <span class="chip">Blender</span>
+      </div>
     </div>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+    <aside class="player-card hud reveal" aria-label="Profile summary">
+      <p class="pc-head">
+        <span>Player</span>
+        <span class="pc-lvl">LVL 03</span>
+      </p>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+      <p class="pc-name">Sankara Pandi</p>
+      <p class="pc-class">Gameplay &amp; Systems Developer</p>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+      <dl class="pc-stats">
+        <div><dt>Base</dt><dd>Coimbatore, IN</dd></div>
+        <div><dt>Guild</dt><dd>DML</dd></div>
+        <div><dt>Status</dt><dd class="live">Open to offers</dd></div>
+      </dl>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+      <ul class="pc-bars">
+        <li><span class="lbl">Gameplay code</span><span class="bar"><i style="--v:92%"></i></span></li>
+        <li><span class="lbl">Systems / backend</span><span class="bar"><i style="--v:84%"></i></span></li>
+        <li><span class="lbl">Physics &amp; feel</span><span class="bar"><i style="--v:88%"></i></span></li>
+        <li><span class="lbl">3D / art pipeline</span><span class="bar"><i style="--v:70%"></i></span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+<!-- ===================== Stats ===================== -->
+<section class="stat-bar" aria-label="At a glance">
+  <div class="wrap">
+    <ul>
+      <li><span class="num" data-count="3" data-suffix="+">0</span><span class="cap">Years shipping</span></li>
+      <li><span class="num" data-count="12" data-suffix="">0</span><span class="cap">Projects built</span></li>
+      <li><span class="num" data-count="3" data-suffix="">0</span><span class="cap">Engines used</span></li>
+    </ul>
+  </div>
+</section>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+<!-- ===================== Jump strip ===================== -->
+<nav class="section--alt" aria-label="Jump to section" style="border-bottom:1px solid var(--line)">
+  <div class="wrap jump">
+    <a href="#work"><span class="n">01</span> Featured work</a>
+    <a href="#archive"><span class="n">02</span> Archive</a>
+    <a href="#about"><span class="n">03</span> Experience</a>
+    <a href="#skills"><span class="n">04</span> Toolkit</a>
+    <a href="#notes"><span class="n">05</span> Notes</a>
+    <a href="#contact"><span class="n">06</span> Contact</a>
+  </div>
+</nav>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+<!-- ===================== Featured work ===================== -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="idx">01</span> Selected work</p>
+      <h2 class="section-title">The two projects worth reading about</h2>
+      <p class="section-sub">
+        Everything else is in the archive below. These two are where the interesting
+        engineering is.
+      </p>
+    </header>
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
+    <div class="featured">
 
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-    
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-
-    <div class="row">
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>
-      <div>
-        <i class="fa fa-battery-half bg" aria-hidden="true"></i>
-        <i class="fa fa-bug bg" aria-hidden="true"></i>
-        <i class="fa fa-coffee bg" aria-hidden="true"></i>
-        <i class="fa fa-code-fork bg" aria-hidden="true"></i>
-        <i class="fa fa-cloud bg" aria-hidden="true"></i>
-        <i class="fa fa-code bg" aria-hidden="true"></i>
-        <i class="fa fa-cubes bg" aria-hidden="true"></i>
-        <i class="fa fa-gift bg" aria-hidden="true"></i>
-        <i class="fa fa-magic bg" aria-hidden="true"></i>
-        <i class="fa fa-music bg" aria-hidden="true"></i>
-        <i class="fa fa-microphone bg" aria-hidden="true"></i>
-        <i class="fa fa-user bg" aria-hidden="true"></i>
-        <i class="fa fa-repeat bg" aria-hidden="true"></i>
-        <i class="fa fa-youtube-play bg" aria-hidden="true"></i>
-        <i class="fa fa-android bg" aria-hidden="true"></i>
-        <i class="fa fa-github bg" aria-hidden="true"></i>
-        <i class="fa fa-fort-awesome bg" aria-hidden="true"></i>
-        <i class="fa fa-heart bg" aria-hidden="true"></i>
-        <i class="fa fa-laptop bg" aria-hidden="true"></i>
-        <i class="fa fa-hashtag bg" aria-hidden="true"></i>
-        <i class="fa fa-gamepad bg" aria-hidden="true"></i>
-      </div>      
-    </div>
-  </section>
-
-
-
-  <main>
-
-    <!--sidebar -->
-    <aside class="sidebar" data-sidebar>
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Sankara Pandi" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Sankara Pandi">Sankara pandi</h1>
-          <div class="container">
-            <h1 class="title">Game &nbsp;<span class="auto-type"></span></h1>
-          </div>
+      <!-- Desk Strike -->
+      <article class="feature reveal">
+        <div class="feature-media">
+          <img src="./assets/images/opt/desk-strike-1200.webp"
+               srcset="./assets/images/opt/desk-strike-600.webp 600w, ./assets/images/opt/desk-strike-1200.webp 1200w"
+               sizes="(max-width: 880px) 92vw, 46vw"
+               alt="Desk Strike — two pens on a desk" width="1200" height="750" loading="lazy">
+          <span class="badge">Shipped · CrazyGames</span>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:sankar.gamedev@gmail.com" class="contact-link">
-                sankar.gamedev@gmail.com
-              </a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+917339405631" class="contact-link">
-                +917339405631
-              </a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-              <time datetime="2003-05-22">May 22, 2003</time>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>Coimbatore, Tamilnadu, India</address>
-            </div>
-          </li>
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://www.instagram.com/madara.dev/" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://www.artstation.com/artist_madara" class="social-link">
-              <i class="fa-brands fa-artstation"></i>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://github.com/Ghost-Of-Uchiha-Madara" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-
-    <!-- main content -->
-    <div class="main-content">
-      
-      <!-- nav bar -->
-      <nav class="navbar">
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-          
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-        
-        </ul>
-      </nav>
-      
-      <!-- about -->
-      <article class="about active" data-page="about">
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-        
-        <section class="about-text">
-          <p>
-            I'm a game developer and designer with hands-on experience in iGaming and hyper-casual games, currently working in the industry to bring engaging titles to life. Skilled in Unity, and Godot, I specialize in crafting gameplay systems that balance creativity with technical precision.
-          </p>
-          
-          <p>
-            Beyond development, I bring a strong artistic side to my work—using Blender for 3D modeling and Aseprite for pixel art—to deliver games that are not only fun to play but visually striking. My passion lies in merging technology with artistry to create immersive and memorable player experiences.
-          </p>
-
-          <p>
-            As I continue to grow in the field, I'm committed to expanding my expertise and pushing the boundaries of what's possible in game design and development.
-          </p>
-        </section>
-        
-        <!-- service -->
-        <section class="service">
-          
-          <h3 class="h3 service-title">What i'm doing</h3>
-          
-          <ul class="service-list">
-            
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="./assets/images/Game Dev Icon.svg" alt="game development icon" width="40px">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">iGaming Development</h4>
-                  <p class="service-item-text">
-                    Building interactive casino-style games with engaging mechanics and smooth player experiences.
-                  </p>
-                </div>
-              </li>
-              
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="./assets/images/Game desgin icon.svg" alt="game design" width="40px">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Hyper-Casual Game Development</h4>
-                  <p class="service-item-text">
-                    Designing and developing fast-paced, addictive games that focus on simplicity, fun, and replayability.
-                  </p>
-                </div>
-              </li>
-              
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="./assets/images/3d icon.svg" alt="3d modeling icon" width="40px">
-                </div>
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">3D Art & Modeling</h4>
-                  <p class="service-item-text">
-                    Creating optimized and immersive 3D assets in Blender, bringing environments and characters to life.
-                  </p>
-                </div>
-              </li>
-              
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img src="./assets/images/Web icon.svg" alt="web development icon" width="40px">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Game Design & Prototyping</h4>
-                <p class="service-item-text">
-                  Crafting gameplay loops, mechanics, and prototypes that blend storytelling and player engagement.
-                </p>
-              </div>
-            </li>
-          
-          </ul>
-        </section>
-
-        <!-- testimonials -->
-        <!-- <section class="testimonials">
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      An exceptional game developer, [Your Name] skillfully turns concepts into realities using Unreal, Unity, and Godot. Their mastery of Aseprite and Blender adds artistic depth, creating games that are truly captivating. A tech-savvy visionary dedicated to their craft.
-                    </p>
-                  </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      An exceptional game developer, [Your Name] skillfully turns concepts into realities using Unreal, Unity, and Godot. Their mastery of Aseprite and Blender adds artistic depth, creating games that are truly captivating. A tech-savvy visionary dedicated to their craft.
-                    </p>
-                  </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      An exceptional game developer, [Your Name] skillfully turns concepts into realities using Unreal, Unity, and Godot. Their mastery of Aseprite and Blender adds artistic depth, creating games that are truly captivating. A tech-savvy visionary dedicated to their craft.
-                    </p>
-                  </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      An exceptional game developer, [Your Name] skillfully turns concepts into realities using Unreal, Unity, and Godot. Their mastery of Aseprite and Blender adds artistic depth, creating games that are truly captivating. A tech-savvy visionary dedicated to their craft.
-                    </p>
-                  </div>
-              </div>
-            </li>
-          </ul>
-        </section> -->
-
-        <!-- testimonials modal -->
-        <!-- <div class="modal-container" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-              <div class="modal-img-wrapper">
-                <figure class="modal-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-                </figure>
-
-                <img src="./assets/images/icon-quote.svg" alt="quote icon">
-              </div>
-
-              <div class="modal-content">
-                <h4 class="h3 modal-title" data-model-title>Daniel lewis</h4>
-                <time datetime="2021-06-14">14 June, 2021</time>
-
-                <div data-modal-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-              </div>
-
-          </section>
-        </div> -->
-
-        <!-- clients -->
-        <!-- <section class="clients">
-          <h3 class="h3 clients-title">Clients</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-        </section> -->
-
-
-      </article>
-
-      <!-- resume -->
-      <article class="resume" data-page="resume">
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
+        <div>
+          <div class="feature-meta">
+            <span class="tag">Unity 6</span>
+            <span class="tag">URP</span>
+            <span class="tag">C#</span>
+            <span class="tag">Mobile web</span>
           </div>
 
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Park College Of Engineering And Technology</h4>
-              <span>2020 - 2024</span>
-              <p class="timeline-text">
-                I have completed my B.E. in Mechatronics Engineering at Park College of Engineering and Technology, Coimbatore.
-              </p>
-            </li>
+          <h3>Desk Strike</h3>
+          <p class="ach" style="margin-bottom:0.9rem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m8.2 13.9-1.4 7.1L12 18l5.2 3-1.4-7.1"/></svg>
+            Shipped &amp; playable
+          </p>
+          <p>
+            A turn-based 3D physics duel. Two pens face each other on a desk; you flick
+            yours at theirs, and the first pen knocked off loses the round. One gesture
+            controls aim, power and contact point at once. Five pens with genuinely
+            different mass, grip and curve response make pen choice the strategic layer.
+          </p>
 
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">OVC HigherSecondary School</h4>
-              <span>2018 - 2020</span>
-              <p class="timeline-text">
-                I finished My HigherSecondary certificates in OVC HigherSecondary School.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
+          <div class="feature-stats">
+            <div><span class="k">120</span><span class="v">C# scripts</span></div>
+            <div><span class="k">5</span><span class="v">Tuned pens</span></div>
+            <div><span class="k ok">Live</span><span class="v">On CrazyGames</span></div>
           </div>
 
-          <ol class="timeline-list">\
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">junior Game Developer</h4>
-              <h4 class="h4 timeline-item-title">DML | Coimbatore</h4>
-              <span>Sep 2023 - Present </span>
-              <p class="timeline-text">
-                Passionate about crafting engaging 2D experiences with a strong focus on UI-based games.<br>
-                Currently building fun and interactive games using Unity and Godot engines. Always learning, always creating! <br>
-                
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Game Designer</h4>
-              <h4 class="h4 timeline-item-title">Arcadix | Remote</h4>
-              <span>Apr 2023 - July 2023 </span>
-              <p class="timeline-text">
-                Collaborate with the design team to create compelling level designs for an
-                Game. <br>
-                Implement game play mechanics, environmental storytelling, and player
-                progression systems. <br>
-                
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">3D Designer</h4>
-              <h4 class="h4 timeline-item-title">3dezine | Remote</h4>
-              <span>Sep 2022 - Mar 2023</span>
-              <p class="timeline-text">
-                Worked independently with clients from various industries, including gaming,advertising, and architecture.<br>
-                Managed multiple projects simultaneously, meeting deadlines and delivering
-                exceptional results.<br>
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <!-- <section class="skill">
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Game development</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Programming</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Game design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">3D designing</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Web development</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-          </ul>
-        </section> -->
-
+          <div class="feature-cta">
+            <!-- TODO(link): replace with the live CrazyGames URL. -->
+            <a class="btn btn--primary btn--sm" href="https://www.crazygames.com/game/REPLACE-WITH-DESK-STRIKE-SLUG" target="_blank" rel="noopener">Play now</a>
+            <a class="btn btn--ghost btn--sm" href="./work/desk-strike.html">Read the case study</a>
+          </div>
+        </div>
       </article>
 
-      <!-- portfolio -->
-      <article class="portfolio" data-page="portfolio">
+      <!-- Plan Failure -->
+      <article class="feature reveal">
+        <div class="feature-media">
+          <img src="./assets/images/opt/plan-failure-1200.webp"
+               srcset="./assets/images/opt/plan-failure-600.webp 600w, ./assets/images/opt/plan-failure-1200.webp 1200w"
+               sizes="(max-width: 880px) 92vw, 46vw"
+               alt="Plan Failure — online multiplayer game" width="1200" height="750" loading="lazy">
+          <span class="badge">In development</span>
+        </div>
 
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button  data-filter-btn>Game development</button>
-            </li>
-
-            <li class="filter-item">
-              <button  data-filter-btn>Game designing</button>
-            </li>
-
-            <li class="filter-item">
-              <button  data-filter-btn>3D modeling</button>
-            </li>
-          </ul>
-
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-select-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </div>
-            </button>
-
-            <ul class="select-list">
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Game development</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Game designing</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>3D designing</button>
-              </li>
-            </ul>
+        <div>
+          <div class="feature-meta">
+            <span class="tag">Unity</span>
+            <span class="tag">Multiplayer</span>
+            <span class="tag">PlayFab</span>
+            <span class="tag">Live ops</span>
           </div>
 
-          <ul class="project-list">
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./spaceShooter.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Space Shooter.png" alt="Space Shooter" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Multiplayer Shooter (Godot)</h3>
-
-                <p class="project-category">Game development </p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./ziggleWings.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/ZiggleWings.png" alt="Ziggle Wings" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Ziggle Wings (Unity)</h3>
-
-                <p class="project-category">Game development</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./ravenCurse.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/RavenCurse1.jpg" alt="Raven Curse" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">The Raven's Curse (Unity)</h3>
-
-                <p class="project-category">Game development</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./popaloon.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/popaloon.jpg" alt="Pop a loon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Pop a loon (Unity)</h3>
-
-                <p class="project-category">Game development</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./kitchenChaos.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/kitchenChaos1.png" alt="kitchen chaos" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Kitchen chaos (Unity)</h3>
-
-                <p class="project-category">Game development</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./platformGame.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/2d_Platformer.png" alt="2d platform game" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">2D platform game (Unity)</h3>
-
-                <p class="project-category">Game development</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game designing">
-              <a href="./gameProp.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/2D_level2.png" alt="game prop" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Game prop</h3>
-
-                <p class="project-category">Game designing</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="game development">
-              <a href="./thirdPersonShooter.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/ThirdPerson1.png" alt="2d platform game" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Third Person Shooter (Unreal)</h3>
-
-                <p class="project-category">Game development</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="3d modeling">
-              <a href="./bossChallenge.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Monster.png" alt="boss challenge" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Boss challenge</h3>
-
-                <p class="project-category">3D modeling</p>
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="3d modeling">
-              <a href="./smallRobot.html">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/Robot1.png" alt="small robot" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">small robot</h3>
-
-                <p class="project-category">3D modeling</p>
-              </a>
-            </li>
-          </ul>
-        </section>
-
-      </article>
-
-      <!-- blog -->
-      <article class="blog" data-page="blog">
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-          <ul class="blog-posts-list">
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/RPG.png" alt="unreal rpg" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Game development</p>
-                    <span class="dot"></span>
-                    <time datetime="2023-09-03">Sep 3, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Unreal RPG game</h3>
-
-                  <p class="blog-text">
-                    This week process in my unreal rpg game was locomotion added and basic sword compact system added.
-                  </p>
-
-                </div>
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/WaterStudy.jpeg" alt="pixel art water color study" loading="lazy">
-                </figure>
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Game designing</p>
-                    <span class="dot"></span>
-                    <time datetime="2023-09-03">Sep 5, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Pixel Art Water Color Study</h3>
-
-                  <p class="blog-text">
-                    This time i learned about how to Implement water color in pixel art and how it's work in game environment.
-                  </p>
-                </div>
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/2Dadv.png" alt="Advance 2D platform" loading="lazy">
-                </figure>
-                
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Game development</p>
-                    <span class="dot"></span>
-                    <time datetime="2023-09-03">Sep 3, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">2d Platform Game (Adv)</h3>
-
-                  <p class="blog-text">
-                    I am currently work in 2d platformGame with some Advance feature. the game have so many different game play mechanics.like, inventory system,story telling .
-                  </p>
-
-                </div>
-              </a>
-            </li>
-
-
-          </ul>
-        </section>
-      </article>
-
-      <!-- contact -->
-      <article class="contact" data-page="contact">
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501289.1885990787!2d76.63828952016577!3d11.01446590260362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1693663386309!5m2!1sen!2sin" width="400" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-          <h3 class="h3 form-title">Contact form</h3>
-
-          <form action="https://formspree.io/f/mleylekj" method="POST" class="form" data-form>
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane-outline"></ion-icon>
-
-        
-                <span>Send Message</span>
-              
-              
-            </button>
-
-          </form>
-        </section>
+          <h3>Plan Failure</h3>
+          <p>
+            An online multiplayer game built on a complete live-service backend rather
+            than a prototype stub: authentication, cloud save, a soft-currency economy,
+            a battle pass, leaderboards, remote config and analytics all run against
+            PlayFab and Unity Gaming Services behind one service layer.
+          </p>
+
+          <div class="feature-stats">
+            <div><span class="k">665</span><span class="v">C# scripts</span></div>
+            <div><span class="k">11</span><span class="v">Backend services</span></div>
+            <div><span class="k">Realtime</span><span class="v">Networking</span></div>
+          </div>
+
+          <div class="feature-cta">
+            <a class="btn btn--ghost btn--sm" href="./work/plan-failure.html">Read the case study</a>
+          </div>
+        </div>
       </article>
 
     </div>
-    
-  </main>
+  </div>
+</section>
 
+<!-- ===================== Archive ===================== -->
+<section class="section section--alt" id="archive">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="idx">02</span> Archive</p>
+      <h2 class="section-title">Everything else I've built</h2>
+      <p class="section-sub">
+        Personal projects, jams and studies across Unity, Godot, Unreal and Blender.
+        Course-follow projects are labelled as such.
+      </p>
+    </header>
 
-  <script src="./assets/js/script.js"></script>
+    <div class="filters reveal" role="group" aria-label="Filter projects">
+      <button data-filter="all" class="is-active" aria-pressed="true">All</button>
+      <button data-filter="unity" aria-pressed="false">Unity</button>
+      <button data-filter="godot" aria-pressed="false">Godot</button>
+      <button data-filter="unreal" aria-pressed="false">Unreal</button>
+      <button data-filter="art" aria-pressed="false">3D Art</button>
+    </div>
 
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="https://kit.fontawesome.com/0dd145ccbf.js" crossorigin="anonymous"></script>
+    <div class="work-grid">
 
-  <script>
-    var typed = new Typed(".auto-type", {
-      strings: ["Developer","Designer"],
-      typeSpeed: 200,
-      backsSpeed: 100,
-      loop: true 
-    });
-  </script>
+      <a class="card reveal" data-category="unity" href="./work/ziggle-wings.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/ziggle-wings-1-600.webp"
+               srcset="./assets/images/opt/ziggle-wings-1-600.webp 600w, ./assets/images/opt/ziggle-wings-1-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Ziggle Wings gameplay" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Ziggle Wings</h3>
+          <p>Hyper-casual flyer built around a single-tap control and a tight score loop.</p>
+          <div class="card-tags"><span>Unity</span><span>C#</span><span>Mobile</span></div>
+        </div>
+      </a>
 
+      <a class="card reveal" data-category="unity" href="./work/pop-a-loon.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/pop-a-loon-1-600.webp"
+               srcset="./assets/images/opt/pop-a-loon-1-600.webp 600w, ./assets/images/opt/pop-a-loon-1-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Pop a Loon gameplay" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Pop a Loon</h3>
+          <p>Casual balloon-popper with escalating spawn patterns and a combo multiplier.</p>
+          <div class="card-tags"><span>Unity</span><span>C#</span><span>2D</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="unity" href="./work/ravens-curse.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/raven-curse-1-600.webp"
+               srcset="./assets/images/opt/raven-curse-1-600.webp 600w, ./assets/images/opt/raven-curse-1-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="The Raven's Curse gameplay" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>The Raven's Curse</h3>
+          <p>Atmospheric 2D game leaning on lighting and mood over mechanical complexity.</p>
+          <div class="card-tags"><span>Unity</span><span>C#</span><span>2D</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="unity" href="./work/near.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/near-600.webp"
+               srcset="./assets/images/opt/near-600.webp 600w, ./assets/images/opt/near-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="neAR augmented reality app" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>neAR</h3>
+          <p>Augmented-reality Unity app using native camera access and on-device tracking.</p>
+          <div class="card-tags"><span>Unity</span><span>AR</span><span>Android</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="godot" href="./work/space-shooter.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/space-shooter-600.webp"
+               srcset="./assets/images/opt/space-shooter-600.webp 600w, ./assets/images/opt/space-shooter-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Multiplayer space shooter" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Multiplayer Shooter</h3>
+          <p>Networked arena shooter in Godot 4 — client/server sync over the high-level API.</p>
+          <div class="card-tags"><span>Godot</span><span>GDScript</span><span>Netcode</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="godot" href="./work/top-down-rpg.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/platformer-level-600.webp"
+               srcset="./assets/images/opt/platformer-level-600.webp 600w, ./assets/images/opt/platformer-level-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Top-down RPG tileset and dialogue" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Top-Down RPG</h3>
+          <p>Godot 4 RPG with a tile-based world, dialogue system and resource-driven data.</p>
+          <div class="card-tags"><span>Godot</span><span>GDScript</span><span>Dialogue</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="unity" href="./work/2d-platformer.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/platformer-600.webp"
+               srcset="./assets/images/opt/platformer-600.webp 600w, ./assets/images/opt/platformer-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="2D platformer" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>2D Platformer</h3>
+          <p>Character controller study — coyote time, jump buffering, variable jump height.</p>
+          <div class="card-tags"><span>Unity</span><span>C#</span><span>2D</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="unity" href="./work/kitchen-chaos.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/kitchen-chaos-1-600.webp"
+               srcset="./assets/images/opt/kitchen-chaos-1-600.webp 600w, ./assets/images/opt/kitchen-chaos-1-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Kitchen Chaos" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Kitchen Chaos <span style="color:var(--muted);font-weight:400">· course project</span></h3>
+          <p>Followed Code Monkey's course to learn Unity's event-driven architecture and ScriptableObject patterns.</p>
+          <div class="card-tags"><span>Unity</span><span>C#</span><span>Learning</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="unreal" href="./work/third-person-shooter.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/third-person-1-600.webp"
+               srcset="./assets/images/opt/third-person-1-600.webp 600w, ./assets/images/opt/third-person-1-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Third person shooter in Unreal" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Third Person Shooter</h3>
+          <p>Unreal locomotion and combat study — animation blueprints and blend spaces.</p>
+          <div class="card-tags"><span>Unreal</span><span>Blueprints</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="art" href="./work/boss-challenge.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/monster-600.webp"
+               srcset="./assets/images/opt/monster-600.webp 600w, ./assets/images/opt/monster-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Boss creature model" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Boss Challenge</h3>
+          <p>Game-ready creature sculpt and retopology in Blender, textured for real-time use.</p>
+          <div class="card-tags"><span>Blender</span><span>3D</span><span>Sculpt</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="art" href="./work/small-robot.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/robot-600.webp"
+               srcset="./assets/images/opt/robot-600.webp 600w, ./assets/images/opt/robot-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Small robot model" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Small Robot</h3>
+          <p>Hard-surface modelling exercise — clean topology and a low-poly game budget.</p>
+          <div class="card-tags"><span>Blender</span><span>3D</span><span>Hard-surface</span></div>
+        </div>
+      </a>
+
+      <a class="card reveal" data-category="art" href="./work/pixel-art.html">
+        <div class="card-media">
+          <img src="./assets/images/opt/platformer-adv-600.webp"
+               srcset="./assets/images/opt/platformer-adv-600.webp 600w, ./assets/images/opt/platformer-adv-1200.webp 1200w"
+               sizes="(max-width: 700px) 92vw, 30vw"
+               alt="Pixel-art game props" width="600" height="375" loading="lazy">
+          <span class="pick" aria-hidden="true">▸ Select</span>
+        </div>
+        <div class="card-body">
+          <h3>Pixel Art &amp; Props</h3>
+          <p>Aseprite tile and prop work, including a water-colour study for level environments.</p>
+          <div class="card-tags"><span>Aseprite</span><span>Pixel art</span><span>2D</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Experience ===================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="idx">03</span> Background</p>
+      <h2 class="section-title">Experience &amp; education</h2>
+    </header>
+
+    <div class="two-col">
+
+      <div class="reveal">
+        <div class="tl-head">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </span>
+          <h3>Experience</h3>
+        </div>
+
+        <ol class="timeline">
+          <li class="is-current">
+            <h4>Game Developer</h4>
+            <p class="org">DML · Coimbatore</p>
+            <span class="when">Sep 2023 — Present</span>
+            <ul class="bullets">
+              <li>Ship iGaming and hyper-casual titles in Unity and Godot, from prototype to release.</li>
+              <li>Build UI-driven game systems — state machines, reward and progression logic, and the data layers behind them.</li>
+              <li>Own gameplay features end to end, working to production deadlines alongside design and art.</li>
+            </ul>
+          </li>
+
+          <li>
+            <h4>Game Designer</h4>
+            <p class="org">Arcadix · Remote</p>
+            <span class="when">Apr 2023 — Jul 2023</span>
+            <ul class="bullets">
+              <li>Designed level layouts and player-progression systems with the design team.</li>
+              <li>Implemented gameplay mechanics and environmental storytelling beats.</li>
+            </ul>
+          </li>
+
+          <li>
+            <h4>3D Designer</h4>
+            <p class="org">3dezine · Remote</p>
+            <span class="when">Sep 2022 — Mar 2023</span>
+            <ul class="bullets">
+              <li>Produced 3D assets for clients across gaming, advertising and architecture.</li>
+              <li>Ran several projects in parallel against fixed client deadlines.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="reveal">
+        <div class="tl-head">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg>
+          </span>
+          <h3>Education</h3>
+        </div>
+
+        <ol class="timeline">
+          <li>
+            <h4>B.E. Mechatronics Engineering</h4>
+            <p class="org">Park College of Engineering and Technology</p>
+            <span class="when">2020 — 2024 · Coimbatore</span>
+            <p>Mechatronics grounding in kinematics, control systems and applied maths — the same rigid-body and integration maths the physics work leans on.</p>
+          </li>
+
+          <li>
+            <h4>Higher Secondary Certificate</h4>
+            <p class="org">OVC Higher Secondary School</p>
+            <span class="when">2018 — 2020</span>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Skills ===================== -->
+<section class="section section--alt" id="skills">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="idx">04</span> Toolkit</p>
+      <h2 class="section-title">What I actually work with</h2>
+      <p class="section-sub">Grouped by what it's for, not scored out of ten — every item here appears in a project on this site.</p>
+    </header>
+
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <div class="skill-head"><h4>Engines</h4><span class="pips" role="img" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <ul><li>Unity 6</li><li>Godot 4</li><li>Unreal 5</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h4>Languages</h4><span class="pips" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div>
+        <ul><li>C#</li><li>GDScript</li><li>HLSL basics</li><li>HTML / CSS / JS</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h4>Gameplay systems</h4><span class="pips" role="img" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <ul><li>Rigid-body physics</li><li>State machines</li><li>Input System</li><li>Cinemachine</li><li>Opponent AI</li><li>Progression</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h4>Live services</h4><span class="pips" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div>
+        <ul><li>PlayFab</li><li>Unity Gaming Services</li><li>Cloud Save</li><li>Economy</li><li>Leaderboards</li><li>Remote Config</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h4>Engineering practice</h4><span class="pips" role="img" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div>
+        <ul><li>Automated testing</li><li>Assembly definitions</li><li>Git</li><li>Profiling</li><li>Editor tooling</li></ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-head"><h4>Art &amp; content</h4><span class="pips" role="img" aria-label="3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div>
+        <ul><li>Blender</li><li>Aseprite</li><li>Photoshop</li><li>PureRef</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Engineering notes ===================== -->
+<section class="section" id="notes">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="idx">05</span> Engineering notes</p>
+      <h2 class="section-title">Problems worth writing down</h2>
+      <p class="section-sub">Short write-ups of decisions and bugs from the projects above.</p>
+    </header>
+
+    <div class="reveal">
+
+      <a class="log" href="./work/desk-strike.html#prediction">
+        <span class="date">Desk Strike</span>
+        <span>
+          <h3>The aim line that lied by 63%</h3>
+          <p>A predicted trajectory that matched straight shots and was wrong about every spinning one — and the curling-stone physics behind the fix.</p>
+        </span>
+        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="log" href="./work/desk-strike.html#ai">
+        <span class="date">Desk Strike</span>
+        <span>
+          <h3>Opponents with personalities, not difficulty sliders</h3>
+          <p>Why turning one "difficulty" number up made the AI feel cheap, and how giving each opponent its own aiming habits made losing feel fair.</p>
+        </span>
+        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="log" href="./work/desk-strike.html#pens">
+        <span class="date">Desk Strike</span>
+        <span>
+          <h3>Making five pens feel different</h3>
+          <p>Turning eight numbers per pen into five objects a player can tell apart blindfolded — and why identical pens made the choice meaningless.</p>
+        </span>
+        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+      <a class="log" href="./work/plan-failure.html#backend">
+        <span class="date">Plan Failure</span>
+        <span>
+          <h3>One service layer, eleven backends</h3>
+          <p>How auth, cloud save, economy, battle pass and remote config sit behind a single interface the gameplay code can call without knowing who answers.</p>
+        </span>
+        <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== Contact ===================== -->
+<section class="section section--alt" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <p class="eyebrow"><span class="idx">06</span> Contact</p>
+        <h2 class="section-title">Let's talk</h2>
+        <p class="section-sub">
+          I'm at DML and open to gameplay or systems roles. Happy to walk through any
+          project here, or share the code.
+        </p>
+
+        <div class="contact-list">
+          <a href="mailto:sankar.gamedev@gmail.com">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <span><span class="k">Email</span><span class="v">sankar.gamedev@gmail.com</span></span>
+          </a>
+
+          <a href="tel:+917339405631">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <span><span class="k">Phone</span><span class="v">+91 73394 05631</span></span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/sankar-gamedev/" target="_blank" rel="noopener">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg></span>
+            <span><span class="k">LinkedIn</span><span class="v">in/sankar-gamedev</span></span>
+          </a>
+
+          <div class="row">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span><span class="k">Location</span><span class="v">Coimbatore, Tamil Nadu, India</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="form" data-form action="https://formspree.io/f/mleylekj" method="POST">
+          <div class="field-row">
+            <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+            <input type="email" name="email" placeholder="Email address" required autocomplete="email">
+          </div>
+          <input type="text" name="subject" placeholder="Subject" autocomplete="off">
+          <textarea name="message" placeholder="What are you working on?" required></textarea>
+          <button class="btn btn--primary" type="submit" data-form-btn>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            <span>Send message</span>
+          </button>
+          <p class="form-note" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== Footer ===================== -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span data-year>2026</span> Sankara Pandi — built by hand, no framework.</p>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/sankar-gamedev/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+      </a>
+      <a href="https://github.com/Ghost-Of-Uchiha-Madara" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.9 18.3 5.2 18.3 5.2c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+      </a>
+      <!-- TODO(link): replace with your itch.io profile URL. -->
+      <a href="https://REPLACE-WITH-YOUR-USERNAME.itch.io" target="_blank" rel="noopener" aria-label="itch.io">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.13 1.34C2.13 1.93.14 4.22 0 4.82v1c0 1.27 1.19 2.38 2.26 2.38 1.29 0 2.36-1.07 2.36-2.34 0 1.27 1.04 2.34 2.33 2.34s2.3-1.07 2.3-2.34c0 1.27 1.1 2.34 2.39 2.34h.02c1.29 0 2.4-1.07 2.4-2.34 0 1.27 1 2.34 2.29 2.34s2.33-1.07 2.33-2.34c0 1.27 1.07 2.34 2.36 2.34C21.81 8.2 23 7.09 23 5.82v-1c-.14-.6-2.13-2.89-3.13-3.48A181 181 0 0 0 3.13 1.34ZM8.5 8.53a2.6 2.6 0 0 1-.45.55c-.48.44-1.15.72-1.88.72a2.8 2.8 0 0 1-1.88-.72c-.16-.15-.3-.32-.42-.5-.12.18-.29.35-.45.5-.4.36-.93.6-1.53.69-.14.01-.28.03-.43.03h-.03l-.02.11c-.14 1.31-.14 2.6-.05 4.28v.03c.1 1.7.29 3.4.48 4.28.15.7.72 1.25 1.42 1.38 2.05.38 5.53.55 9.01.55 3.48 0 6.96-.17 9.01-.55a1.8 1.8 0 0 0 1.42-1.38c.19-.88.38-2.58.48-4.28v-.03c.09-1.68.09-2.97-.05-4.28l-.02-.11h-.03c-.15 0-.29-.02-.43-.03-.6-.09-1.13-.33-1.53-.69-.16-.15-.33-.32-.45-.5-.12.18-.26.35-.42.5-.5.44-1.16.72-1.88.72a2.8 2.8 0 0 1-1.88-.72 2.6 2.6 0 0 1-.45-.55 2.7 2.7 0 0 1-.46.55c-.48.44-1.15.72-1.87.72h-.02c-.72 0-1.39-.28-1.87-.72a2.7 2.7 0 0 1-.46-.55Zm-.87 3.03c.72 0 1.36 0 2.16.87.63-.06 1.29-.1 1.97-.1.68 0 1.34.04 1.97.1.8-.87 1.44-.87 2.16-.87.34 0 1.7 0 2.65 2.68l1.02 3.66c.76 2.72-.24 2.79-1.5 2.79-1.86-.07-2.89-1.42-2.89-2.77-1.03.17-2.24.25-3.41.25s-2.38-.08-3.41-.25c0 1.35-1.03 2.7-2.89 2.77-1.26 0-2.26-.07-1.5-2.79l1.02-3.66c.95-2.68 2.31-2.68 2.65-2.68Zm3.24 1.62v.01c-.01.01-1.36 1.25-1.6 1.69l.88-.04v.77c0 .04.36.02.72.02s.72.02.72-.02v-.77l.88.04c-.24-.44-1.6-1.7-1.6-1.7Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/madara.dev/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/main.js" defer></script>
 </body>
 </html>
