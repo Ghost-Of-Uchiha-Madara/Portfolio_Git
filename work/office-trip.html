@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plan Failure — Sankara Pandi</title>
+<title>Office Trip — Sankara Pandi</title>
 <meta name="description" content="Case study: an online multiplayer social-deduction game in Unity, built on Photon Fusion with a full PlayFab live-service backend — 665 scripts across modular assemblies.">
 <link rel="icon" href="../assets/images/MadaraLogo.png" type="image/png">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -45,7 +45,7 @@
       All work
     </a>
 
-    <h1 class="case-title">Plan Failure</h1>
+    <h1 class="case-title">Office Trip</h1>
     <p class="case-lede">
       An online multiplayer social-deduction game: a crew completes tasks around a map
       while hidden saboteurs work against them, with meetings, evidence and voice chat
@@ -68,10 +68,11 @@
 
   <div class="shot-grid">
     <figure>
-      <img src="../assets/images/opt/plan-failure-600.webp"
-           srcset="../assets/images/opt/plan-failure-600.webp 600w, ../assets/images/opt/plan-failure-1200.webp 1200w"
+      <img src="../assets/images/opt/office-trip-600.webp"
+           srcset="../assets/images/opt/office-trip-600.webp 600w, ../assets/images/opt/office-trip-1200.webp 1200w"
            sizes="(max-width: 700px) 92vw, 45vw"
-           alt="Plan Failure gameplay" width="600" height="375" loading="lazy">
+           alt="Office Trip key art — colleagues racing to organise a trip before 5pm"
+           width="600" height="375" loading="lazy">
       <figcaption>Screenshot pending — captures to be added from the current build</figcaption>
     </figure>
   </div>
@@ -80,7 +81,7 @@
 
     <h2>The shape of the project</h2>
     <p>
-      Plan Failure is the largest thing I have built. It is a networked multiplayer game
+      Office Trip is the largest thing I have built. It is a networked multiplayer game
       with a real account system behind it, which means most of the difficulty is not in
       the gameplay code at all — it is in everything that has to be true before two
       players can even see each other.
@@ -96,7 +97,9 @@
       The codebase is split across assembly definitions —
       <code>PlanFailure.Networking</code>, <code>PlanFailure.Managers</code>,
       <code>PlanFailure.Gameplay</code> and others — rather than living in one
-      <code>Assembly-CSharp</code>. Two reasons, both practical:
+      <code>Assembly-CSharp</code>. (<em>Plan Failure</em> was the working title; the
+      namespaces kept it after the game was renamed, since renaming them would touch
+      every file to change something no player ever sees.) Two reasons, both practical:
     </p>
     <ul>
       <li><strong>Compile times.</strong> At 665 scripts, a single assembly means every edit recompiles everything. Splitting it means a UI change does not rebuild the netcode.</li>
