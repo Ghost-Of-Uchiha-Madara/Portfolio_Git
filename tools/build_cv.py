@@ -117,8 +117,8 @@ story.append(Paragraph(
     "linkedin.com/in/sankar-gamedev</a> &nbsp;&middot;&nbsp; "
     '<a href="https://github.com/Ghost-Of-Uchiha-Madara" color="#B77400">'
     "github.com/Ghost-Of-Uchiha-Madara</a> &nbsp;&middot;&nbsp; "
-    '<a href="https://ghost-of-uchiha-madara.github.io/Portfolio_Git/" color="#B77400">'
-    "<b>Portfolio &amp; case studies</b></a>",
+    '<a href="https://madara.pages.dev/" color="#B77400">'
+    "<b>madara.pages.dev</b></a>",
     S["contact"]))
 
 story += section("Profile")
@@ -179,7 +179,7 @@ story.append(project(
     "A multiplayer space shooter on Godot's high-level networking API; neAR, an "
     "augmented-reality Unity app using native camera access and on-device tracking; "
     "and character and prop work in Blender, retopologised and textured for real-time "
-    "budgets. Case studies for each are on the portfolio."))
+    "budgets. Case studies for each are at madara.pages.dev."))
 
 # ---- Skills ---------------------------------------------------------------
 story += section("Technical Skills")
