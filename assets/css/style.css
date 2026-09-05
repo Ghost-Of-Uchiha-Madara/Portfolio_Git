@@ -1390,3 +1390,60 @@ body::after {
   margin-left: 0.6rem;
   vertical-align: 0.15em;
 }
+
+/* --- Video media ---------------------------------------------------------
+   Sized identically to the images in the same containers, so a clip can stand
+   in for a screenshot without changing any layout. */
+.feature-media video,
+.shot-grid video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--bg);
+}
+.feature:hover .feature-media video { transform: scale(1.035); }
+.feature-media video { transition: transform 0.6s var(--ease); }
+
+.media-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 5px;
+  background: hsl(240 6% 6% / 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--line-hi);
+  font-family: var(--ff-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* --- Case-study clip ------------------------------------------------------ */
+.case-clip {
+  margin-block: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+.case-clip video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--bg);
+}
+.case-clip figcaption {
+  padding: 0.7rem 0.95rem;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}

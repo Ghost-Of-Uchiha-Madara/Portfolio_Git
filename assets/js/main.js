@@ -289,6 +289,51 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
   window.addEventListener('resize', onScroll, { passive: true });
 })();
 
+/* --- Gameplay clips ------------------------------------------------------
+   Autoplaying video is a bandwidth and attention cost, so a clip only starts
+   once it is actually on screen and stops again when it leaves. With reduced
+   motion requested nothing plays: the poster frame stands in, and controls
+   appear so the clip is still reachable on purpose. */
+(function autoLoopVideos() {
+  const videos = [...document.querySelectorAll('video[data-autoloop]')];
+  if (videos.length === 0) return;
+
+  if (reduceMotion) {
+    videos.forEach((v) => {
+      v.controls = true;
+      v.preload = 'metadata';
+    });
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach((v) => (v.controls = true));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          // preload="none" means there is nothing buffered until we ask.
+          if (v.preload === 'none') v.preload = 'auto';
+          const played = v.play();
+          // Autoplay can still be refused; fall back to visible controls.
+          if (played && typeof played.catch === 'function') {
+            played.catch(() => { v.controls = true; });
+          }
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  videos.forEach((v) => observer.observe(v));
+})();
+
 /* --- Footer year ---------------------------------------------------------- */
 (function year() {
   const el = document.querySelector('[data-year]');
