@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Failure — Sankara Pandi</title>
+<meta name="description" content="Case study: an online multiplayer social-deduction game in Unity, built on Photon Fusion with a full PlayFab live-service backend — 665 scripts across modular assemblies.">
+<link rel="icon" href="../assets/images/MadaraLogo.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="xp-bar" aria-hidden="true"><span data-xp></span></div>
+
+<header class="site-header" data-header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">SP</span>
+      <span>Sankara<b>.</b></span>
+    </a>
+    <ul class="nav-links" id="nav-links" data-nav-links>
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#notes">Notes</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn--ghost btn--sm btn--cv" href="../assets/cv/Sankara-Pandi-CV.pdf" download>Résumé</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation" aria-controls="nav-links"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </a>
+
+    <h1 class="case-title">Plan Failure</h1>
+    <p class="case-lede">
+      An online multiplayer social-deduction game: a crew completes tasks around a map
+      while hidden saboteurs work against them, with meetings, evidence and voice chat
+      deciding who gets believed. Built on Photon Fusion over a complete live-service
+      backend rather than a prototype stub.
+    </p>
+
+    <dl class="case-facts">
+      <div><dt>Engine</dt><dd>Unity 6000.0 · URP</dd></div>
+      <div><dt>Netcode</dt><dd>Photon Fusion</dd></div>
+      <div><dt>Backend</dt><dd>PlayFab · Unity Gaming Services</dd></div>
+      <div><dt>Codebase</dt><dd>665 C# scripts</dd></div>
+      <div><dt>Platform</dt><dd>PC &amp; mobile</dd></div>
+      <div><dt>Status</dt><dd>In development</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="wrap">
+
+  <div class="shot-grid">
+    <figure>
+      <img src="../assets/images/opt/plan-failure-600.webp"
+           srcset="../assets/images/opt/plan-failure-600.webp 600w, ../assets/images/opt/plan-failure-1200.webp 1200w"
+           sizes="(max-width: 700px) 92vw, 45vw"
+           alt="Plan Failure gameplay" width="600" height="375" loading="lazy">
+      <figcaption>Screenshot pending — captures to be added from the current build</figcaption>
+    </figure>
+  </div>
+
+  <div class="case-body">
+
+    <h2>The shape of the project</h2>
+    <p>
+      Plan Failure is the largest thing I have built. It is a networked multiplayer game
+      with a real account system behind it, which means most of the difficulty is not in
+      the gameplay code at all — it is in everything that has to be true before two
+      players can even see each other.
+    </p>
+    <p>
+      The gameplay layer alone spans seventeen modules: tasks, sabotage, meetings,
+      evidence, security, mini-games, traversal, map, items, lobby, tutorial and the
+      diagnostics needed to debug all of it while three clients are running.
+    </p>
+
+    <h2>Modular assemblies, not one big folder</h2>
+    <p>
+      The codebase is split across assembly definitions —
+      <code>PlanFailure.Networking</code>, <code>PlanFailure.Managers</code>,
+      <code>PlanFailure.Gameplay</code> and others — rather than living in one
+      <code>Assembly-CSharp</code>. Two reasons, both practical:
+    </p>
+    <ul>
+      <li><strong>Compile times.</strong> At 665 scripts, a single assembly means every edit recompiles everything. Splitting it means a UI change does not rebuild the netcode.</li>
+      <li><strong>Enforced direction.</strong> Assembly references only point one way, so gameplay can call into managers but managers cannot reach back into gameplay. The compiler enforces the architecture instead of a code review having to.</li>
+    </ul>
+
+    <h2 id="backend">One service layer, eleven backends</h2>
+    <p>
+      The live-service side runs against PlayFab and Unity Gaming Services, sitting
+      behind a single set of services the gameplay code calls without knowing who
+      actually answers:
+    </p>
+    <ul>
+      <li><strong>Authentication</strong> — PlayFab auth alongside platform sign-in, so a player can arrive from more than one direction and end up as the same account.</li>
+      <li><strong>Cloud save</strong> — profile and progress persisting across devices.</li>
+      <li><strong>Economy</strong> — soft currency, purchases and balances validated server-side rather than trusted from the client.</li>
+      <li><strong>Battle pass and progression</strong> — level curves, unlocks and season state.</li>
+      <li><strong>Leaderboards</strong> and player statistics.</li>
+      <li><strong>Remote config</strong> — tuning values changeable without shipping a build, which matters enormously once a game is live.</li>
+      <li><strong>Analytics</strong> — event tracking to see what players actually do rather than what the design assumed.</li>
+    </ul>
+    <p>
+      Keeping these behind one interface is the part I would defend hardest. Gameplay
+      code asks for a balance or a progression state; it does not know whether that came
+      from PlayFab, from a cache, or from a local fallback while the network is down. That
+      boundary is what makes the backend replaceable.
+    </p>
+
+    <div class="callout">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+      <p><strong>The lesson that cost the most time:</strong> a live backend fails in ways a prototype never does — slow responses, partial writes, a player who reinstalls mid-season. Designing for the failure path first turned out to be much cheaper than retrofitting it.</p>
+    </div>
+
+    <h2>Networking</h2>
+    <p>
+      Netcode runs on Photon Fusion. Input is gathered locally into a network input
+      struct and applied on the authoritative tick, which keeps client prediction and
+      server state describing the same thing. Around that sit a lobby browser for finding
+      and joining matches, a connection-state machine for the many ways joining can fail,
+      and voice chat so meetings actually work as meetings.
+    </p>
+    <p>
+      Input is abstracted so the same gameplay code serves a desktop player on keyboard
+      and a mobile player on touch — the poller differs, the network payload does not.
+    </p>
+
+    <h2>Presentation and feel</h2>
+    <p>
+      Cinemachine drives the camera rig, including an extension that tightens framing in
+      confined spaces so corridors stay readable. Player animation is driven from network
+      state rather than local input, so what remote players see matches what the server
+      believes. There is an accessibility layer, and an atmosphere system that stages the
+      environment as a round progresses.
+    </p>
+
+    <h2>Where it stands</h2>
+    <p>
+      Still in development. The systems described here are built and running; the work
+      ahead is content, balance and the long tail of multiplayer edge cases that only
+      appear with real players in a real lobby.
+    </p>
+
+  </div>
+
+  <nav class="case-nav">
+    <a class="btn btn--ghost btn--sm btn--plain" href="../index.html#work">← Back to all work</a>
+    <a class="btn btn--ghost btn--sm btn--plain" href="./desk-strike.html">← Previous: Desk Strike</a>
+    <a class="btn btn--primary btn--sm" href="../index.html#contact">Get in touch</a>
+  </nav>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span data-year>2026</span> Sankara Pandi — built by hand, no framework.</p>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/sankar-gamedev/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+      </a>
+      <a href="https://github.com/Ghost-Of-Uchiha-Madara" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.9 18.3 5.2 18.3 5.2c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desk Strike — Sankara Pandi</title>
+<meta name="description" content="Case study: a turn-based 3D physics duel in Unity 6, shipped to CrazyGames. Trajectory prediction, five tuned pens, and and an automated suite over a physics game.">
+<link rel="icon" href="../assets/images/MadaraLogo.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="xp-bar" aria-hidden="true"><span data-xp></span></div>
+
+<header class="site-header" data-header>
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">SP</span>
+      <span>Sankara<b>.</b></span>
+    </a>
+    <ul class="nav-links" id="nav-links" data-nav-links>
+      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#notes">Notes</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn--ghost btn--sm btn--cv" href="../assets/cv/Sankara-Pandi-CV.pdf" download>Résumé</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation" aria-controls="nav-links"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="case-hero">
+  <div class="wrap">
+    <a class="back-link" href="../index.html#work">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All work
+    </a>
+
+    <h1 class="case-title">Desk Strike</h1>
+    <p class="case-lede">
+      A turn-based 3D physics duel played on a desk. Two pens face each other; you flick
+      yours at your opponent's, and the first pen knocked off loses the round. Best of
+      three. Built for one-handed mobile play and shipped to CrazyGames.
+    </p>
+
+    <dl class="case-facts">
+      <div><dt>Engine</dt><dd>Unity 6000.3 · URP</dd></div>
+      <div><dt>Language</dt><dd>C#</dd></div>
+      <div><dt>Platform</dt><dd>Mobile web</dd></div>
+      <div><dt>Role</dt><dd>Solo developer</dd></div>
+      <div><dt>Status</dt><dd>Shipped</dd></div>
+    </dl>
+
+    <div class="feature-cta">
+      <!-- TODO(link): replace with the live CrazyGames URL. -->
+      <a class="btn btn--primary btn--sm" href="https://www.crazygames.com/game/REPLACE-WITH-DESK-STRIKE-SLUG" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Play on CrazyGames
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+
+  <div class="shot-grid">
+    <figure>
+      <img src="../assets/images/opt/desk-strike-600.webp"
+           srcset="../assets/images/opt/desk-strike-600.webp 600w, ../assets/images/opt/desk-strike-1200.webp 1200w"
+           sizes="(max-width: 700px) 92vw, 45vw"
+           alt="Desk Strike gameplay" width="600" height="375" loading="lazy">
+      <figcaption>Screenshot pending — captures to be added from the release build</figcaption>
+    </figure>
+  </div>
+
+  <div class="case-body">
+
+    <h2>The pitch</h2>
+    <p>
+      Aim, power and contact point are one gesture. You touch the pen where you want to
+      strike it, drag towards the target, and release. Direction is the aim, drag distance
+      is the power, and where you grabbed it is where it gets hit. There is no second
+      control and no confirm step — which matters, because the whole thing is meant to be
+      played on a phone held in one hand.
+    </p>
+    <p>
+      Everything after the release is physics. Pens accelerate, slide, spin, transfer
+      momentum and topple off the edge under their own weight. Nothing about a shot is
+      scripted, and a missed shot leaves your pen wherever the simulation put it —
+      usually somewhere worse than where it started.
+    </p>
+
+    <div class="callout">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></span>
+      <p><strong>The design rewrite.</strong> The first design document specified a 2–4 player party game with identical pens, three rule-sets, obstacles and chain reactions. What I built is a 1v1 duel with five mechanically distinct pens and no obstacles at all. Every one of those cuts was made because the original spec fought the north star: <em>can I make the perfect shot?</em></p>
+    </div>
+
+    <h2 id="pens">Five pens that actually feel different</h2>
+    <p>
+      The original design insisted every pen be identical "to protect competitive
+      integrity". In practice that made the pen a skin — a cosmetic choice with no
+      consequences. I replaced it with five pens that differ across eight parameters:
+      length, radius, mass, power, curve response, control, grip and bounce.
+    </p>
+    <p>
+      Each one is authored as a Blender model one unit long, scaled at runtime from the
+      same two numbers that size its collider — so the pen you see cannot disagree with
+      the pen the physics hits.
+    </p>
+    <ul>
+      <li><strong>Ballpoint</strong> — the neutral baseline everything else is measured against.</li>
+      <li><strong>Marker</strong> — the immovable object. Heavy, high grip, low bounce; hard to shift and hard to aim.</li>
+      <li><strong>Fineliner</strong> — glass. Travels forever, curves roughly four times as sharply as the Marker, and loses every exchange of momentum.</li>
+      <li><strong>Fountain</strong> — hits hardest and is the hardest to keep still.</li>
+      <li><strong>Pencil</strong> — stops exactly where you put it and refuses to be shoved.</li>
+    </ul>
+    <p>
+      Choosing a pen is a commitment made before the match starts, which turns it into
+      the game's only pre-shot strategic layer — and gives progression something to unlock
+      that changes how the game plays rather than how it looks.
+    </p>
+
+    <h2 id="prediction">The aim line that lied by 63%</h2>
+    <p>
+      While aiming, the player sees the full predicted path of their pen. The original
+      design forbade this — hide the trajectory, "keep it skill-based". I went the other
+      way: hiding the path made the physics feel arbitrary rather than deep. Skill moved
+      from <em>guessing where it goes</em> to <em>choosing where it should go</em>.
+    </p>
+    <p>
+      That only works if the preview never lies. The prediction re-runs the real
+      integration — Unity's own drag law, Coulomb friction against the desk, the same
+      fixed timestep, the same curve force. Two corrections were bought with debugging
+      time:
+    </p>
+    <ul>
+      <li><strong>Friction is the average of the pen's material and the desk's</strong>, because that is how Unity combines them.</li>
+      <li><strong>A pen lying on its side pays that friction at two contacts, not one.</strong> Leaving out the factor of two made a 0.7-power ballpoint predict 3.61 m and actually travel 2.35 m.</li>
+    </ul>
+    <p>
+      The third correction was the interesting one. An off-centre strike sets the pen
+      spinning, and a spinning pen's contact patches slide sideways as well as forwards —
+      so less of the desk's grip is left to fight forward travel. It is the curling-stone
+      effect. PhysX models it for free; a point-mass prediction does not.
+    </p>
+
+    <div class="callout">
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+      <p><strong>The symptom:</strong> the line was honest about centre strikes and wrong about everything else. Measured before the fix, a fineliner struck at half its length travelled <strong>63% further than the line drew</strong>; a ballpoint at full contact, 51% further.</p>
+    </div>
+
+    <p>
+      The fix scales predicted friction by how hard a given strike spins that particular
+      pen — contact point against the control resisting the turn and the mass being
+      turned — saturating once the contact patch is dominated by rotation. Its constants
+      are fitted to measured shots, and <code>StrikePredictionTests</code> fires every pen
+      at three contact points to hold the whole roster to the same tolerance a straight
+      shot gets.
+    </p>
+    <p>
+      The rule this left behind: <strong>any change to the shot model must change both the
+      simulation and the prediction, or neither.</strong>
+    </p>
+
+    <h2>Splitting the strike into three effects</h2>
+    <p>
+      The gesture produces a <code>StrikeCommand</code> — contact point, direction, power.
+      The player and the AI both produce exactly this, and it is the only way a pen moves.
+      The solver then applies three effects separately rather than letting one off-centre
+      impulse produce all of them:
+    </p>
+    <ul>
+      <li><strong>Linear impulse at the centre of mass</strong>, applied as a velocity change, so a 0.22 kg fineliner and a 0.62 kg marker both launch at a predictable pace.</li>
+      <li><strong>Yaw torque</strong> scaled by contact point and divided by the pen's control, so it visibly spins the way it was struck, by a known amount.</li>
+      <li><strong>A decaying lateral force</strong> that bends the path.</li>
+    </ul>
+    <p>
+      Splitting them is what makes the path predictable at all. A single off-centre impulse
+      produces the same effects but compounds them unpredictably — and a path that cannot
+      be predicted cannot be previewed honestly.
+    </p>
+
+    <h2 id="ai">Opponents with personalities, not difficulty sliders</h2>
+    <p>
+      Single-player faces five named characters rather than an easy/medium/hard toggle.
+      Each is a set of behaviour weights — accuracy, aggression, power bias, think time,
+      search depth — plus a signature pen. Smudge the Slammer plays a marker at 0.95
+      aggression; Hairline the Sniper plays a fineliner at 0.90 accuracy. Two opponents of
+      similar skill lose in visibly different ways, so the player learns to read
+      <em>who</em> they are facing rather than <em>how hard</em> it is.
+    </p>
+    <p>
+      A detail I am pleased with: <strong>think time is spent during the settle, not after
+      it.</strong> The planner has its answer within a frame, so the pause is
+      characterisation rather than computation — it runs down while the player's own shot
+      is still coming to rest, and only the remainder is ever spent visibly.
+    </p>
+
+    <h2 id="testing">Testing a physics game</h2>
+    <p>
+      Physics is supposed to be untestable, and simulating PhysX in a unit test would be
+      pointless. So the suite does not test the simulation. It tests everything around it —
+      the parts where a regression is silent and expensive:
+    </p>
+    <ul>
+      <li><strong>The prediction against the simulation.</strong> Every pen, three contact points, held to one tolerance. This is the test that would have caught the 63% error.</li>
+      <li><strong>Strike command validity</strong> — clamping the contact point to the pen body, flattening aim onto the desk plane, rejecting a flick too small to be intentional.</li>
+      <li><strong>Directional invariants</strong> — striking the top end bends right, the bottom end bends left; a harder hit throws further; a knockout throws more than any ordinary hit.</li>
+      <li><strong>Design invariants</strong> — the opponent ladder must stay sorted by accuracy, so nobody can reorder the roster and silently break the difficulty curve.</li>
+      <li><strong>Tutorial flow</strong> — a lesson waits for the player rather than a clock; an explanation holds until acknowledged; skipping ends coaching for good.</li>
+      <li><strong>Graceful degradation</strong> — missing systems are harmless rather than throwing.</li>
+    </ul>
+    <p>
+      The suite runs from an editor menu and regenerates a report at the project root, so
+      the state of the build is a file rather than a memory. It targets design regressions
+      rather than crashes — the class of bug that actually survives to release in a game
+      this small.
+    </p>
+
+    <h2>Things I deliberately did not build</h2>
+    <p>
+      Cut from the original design: multiple rule-sets, arenas with obstacles, 2–4 player
+      matches, and chain reactions. Each was cut for the same reason — it added a system
+      that competed with the shot for the player's attention. The loop is aim, power,
+      release, physics, knockout or not. Nothing interrupts it. There are no obstacles, no
+      pickups and no per-turn resources.
+    </p>
+    <p>
+      The desk is 7.5 × 11 units, and a pen is upright-constrained only while it is fully
+      supported. The moment any part passes the edge, rotation is handed back to physics —
+      which does <em>not</em> force a fall. Gravity topples the pen only once its centre of
+      mass clears the lip, exactly as a real pen would. A pen can sit balanced over the
+      edge, and that is a legitimate and very tense board state.
+    </p>
+
+  </div>
+
+  <nav class="case-nav">
+    <a class="btn btn--ghost btn--sm btn--plain" href="../index.html#work">← Back to all work</a>
+    <a class="btn btn--ghost btn--sm btn--plain" href="./plan-failure.html">Next: Plan Failure →</a>
+    <a class="btn btn--primary btn--sm" href="../index.html#contact">Get in touch</a>
+  </nav>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span data-year>2026</span> Sankara Pandi — built by hand, no framework.</p>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/sankar-gamedev/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+      </a>
+      <a href="https://github.com/Ghost-Of-Uchiha-Madara" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.9 18.3 5.2 18.3 5.2c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
