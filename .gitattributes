@@ -1,0 +1,20 @@
+# core.autocrlf is on for this checkout, so binaries must be marked explicitly
+# or Git will rewrite their line endings on checkout and corrupt them.
+* text=auto
+
+*.pdf   binary
+*.mp4   binary
+*.webm  binary
+*.webp  binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+
+*.html  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.svg   text eol=lf
+*.md    text eol=lf
